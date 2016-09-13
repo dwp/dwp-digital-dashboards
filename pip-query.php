@@ -1,6 +1,11 @@
 <?php
 $query = $_GET['query'];
-
+$my_env_var = 'd';
+echo $my_env_var;
+?>
+<br />
+<?
+echo getenv('username');
 switch ($query) {
     case "sessionAndUsers":
         //http://www.bohyunkim.net/blog/archives/2831#.V9aAupMrJE5
