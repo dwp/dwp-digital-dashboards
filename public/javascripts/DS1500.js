@@ -10,7 +10,7 @@ $(function(){
         changePip2 = (queryJson.table.rows[1].c[4].v*100).toFixed(2),
         arrowPip1  = changePip1 > 0 ? 'increase' : 'decrease',
         arrowPip2  = changePip2 > 0 ? 'increase' : 'decrease';
-console.log(queryJson);
+
     $('#completion-pip-1').append('<h3 class="heading-xlarge">' + ratePip1 + '% <span class="heading-small"> completed</span></h3>' +
       '<p><span class="' + arrowPip1 + '"></span>' + changePip1 + '% ' + arrowPip1 + '</p>');
 
@@ -43,21 +43,21 @@ console.log(queryJson);
 
   function runQueries() {
      $.ajax({
-       url : './pip-query.php?query=sessionsToComplete',
+       url : '../DS1500/DS1500.php?query=sessionsToComplete',
          success:function(data) {
            drawStats('sessions-to-complete',data);
         }
      });
 
      $.ajax({
-       url : './pip-query.php?query=completionRate',
+       url : '../DS1500/DS1500.php?query=completionRate',
          success:function(data) {
            completionRate(data)
         }
      });
 
      $.ajax({
-       url : './pip-query.php?query=completionTime',
+       url : '../DS1500/DS1500.php?query=completionTime',
          success:function(data) {
            completionTime(data)
         }
