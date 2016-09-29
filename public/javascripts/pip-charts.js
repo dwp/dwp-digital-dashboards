@@ -53,28 +53,28 @@ $(function(){
 
   function runQueries() {
     $.ajax({
-      url: './pip-query.php?query=sessionAndUsers',
+      url: '../piptest-yannis/piptest-query.php?query=sessionAndUsers',
         success:function(data) {
           sessionAndUsers(data);
        }
      });
 
      $.ajax({
-       url : './pip-query.php?query=deviceUsage',
+       url : '../piptest-yannis/piptest-query.php?query=deviceUsage',
          success:function(data) {
            deviceUsage(data);
         }
      });
 
      $.ajax({
-       url : './pip-query.php?query=totalUsers',
+       url : '../piptest-yannis/piptest-query.php?query=totalUsers',
          success:function(data) {
           drawStats('total-users',data);
         }
      });
 
      $.ajax({
-       url : './pip-query.php?query=totalSessions',
+       url : '../piptest-yannis/piptest-query.php?query=totalSessions',
          success:function(data) {
           drawStats('total-sessions',data);
         }

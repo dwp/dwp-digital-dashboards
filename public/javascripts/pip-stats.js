@@ -43,21 +43,21 @@ console.log(queryJson);
 
   function runQueries() {
      $.ajax({
-       url : './pip-query.php?query=sessionsToComplete',
+       url : '../piptest-yannis/piptest-query.php?query=sessionsToComplete',
          success:function(data) {
            drawStats('sessions-to-complete',data);
         }
      });
 
      $.ajax({
-       url : './pip-query.php?query=completionRate',
+       url : '../piptest-yannis/piptest-query.php?query=completionRate',
          success:function(data) {
            completionRate(data)
         }
      });
 
      $.ajax({
-       url : './pip-query.php?query=completionTime',
+       url : '../piptest-yannis/piptest-query.php?query=completionTime',
          success:function(data) {
            completionTime(data)
         }
