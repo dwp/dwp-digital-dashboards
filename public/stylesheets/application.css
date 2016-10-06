@@ -60,7 +60,7 @@ select {
   color: #000;
   font-weight: bold;
   font-size: 24px;
-  margin-bottom: 1em; }
+/*margin-bottom: 1em;*/ }
   #global-header #logo {
     font-family: sans-serif;
     font-size: 18pt;
