@@ -6,7 +6,7 @@ function getChartData(data) {
   return queryJson;
 }
 
-function drawStats(container,data) {
+function drawStats(container,data,showTagline) {
   var queryJson       = getChartData(data),
       total2b         = queryJson.table.rows[0].c[0].v,
       total21         = queryJson.table.rows[0].c[1].v,
@@ -22,8 +22,13 @@ function drawStats(container,data) {
         total21 = total21.toFixed(2)
       }
 
-  $('#' + container).append('<h3 class="heading-xlarge">' + total21 + '</h3>'+
-    '<p>(' + totalDifference + ')<span class="' + arrow + '"></span>' + change + '% ' + arrow + '</p>');
+      if (showTagline !== false) {
+        var taglinetext = '<p>(' + totalDifference + ')<span class="' + arrow + '"></span>' + change + '% ' + arrow + '</p>';
+      } else {
+        var taglinetext = "";
+      }
+
+  $('#' + container).append('<h3 class="heading-xlarge">' + total21 + '</h3>' + taglinetext);
 }
 
 function getTimes(time) {

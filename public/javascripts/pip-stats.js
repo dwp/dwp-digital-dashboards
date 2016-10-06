@@ -10,7 +10,7 @@ $(function(){
         changePip2 = (queryJson.table.rows[1].c[4].v*100).toFixed(2),
         arrowPip1  = changePip1 > 0 ? 'increase' : 'decrease',
         arrowPip2  = changePip2 > 0 ? 'increase' : 'decrease';
-console.log(queryJson);
+
     $('#completion-pip-1').append('<h3 class="heading-xlarge">' + ratePip1 + '% <span class="heading-small"> completed</span></h3>' +
       '<p><span class="' + arrowPip1 + '"></span>' + changePip1 + '% ' + arrowPip1 + '</p>');
 

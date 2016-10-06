@@ -27,12 +27,15 @@ $(function(){
         chartData = [['Date', 'Users', 'Sessions']];
 
     for (var i=1; i<queryJson.table.rows.length; i++) {
-      var getDate          = new Date(queryJson.table.rows[i].c[0].f),
-          formattedDate    = getDate.getDate() + '-' + (getDate.getMonth() + 1),
-          users            = parseFloat(queryJson.table.rows[i].c[1].f),
-          sessions         = parseFloat(queryJson.table.rows[i].c[2].f);
-          chartData.push([formattedDate, users, sessions]);
-    }
+      if (queryJson.table.rows[i].c[0]) {
+        var getDate          = new Date(queryJson.table.rows[i].c[0].f),
+            formattedDate    = getDate.getDate() + '-' + (getDate.getMonth() + 1),
+            users            = parseFloat(queryJson.table.rows[i].c[1].f),
+            sessions         = parseFloat(queryJson.table.rows[i].c[2].f);
+            chartData.push([formattedDate, users, sessions]);
+        }
+      }
+
 
     var data = google.visualization.arrayToDataTable(chartData),
         options = {
@@ -69,14 +72,14 @@ $(function(){
      $.ajax({
        url : './pip-query.php?query=totalUsers',
          success:function(data) {
-          drawStats('total-users',data);
+          drawStats('total-users',data,false);
         }
      });
 
      $.ajax({
        url : './pip-query.php?query=totalSessions',
          success:function(data) {
-          drawStats('total-sessions',data);
+          drawStats('total-sessions',data,false);
         }
      });
    }
